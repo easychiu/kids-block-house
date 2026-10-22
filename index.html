@@ -129,6 +129,12 @@
           <span class="sr-only">煙火</span>
         </button>
 
+        <button id="btn-badges" type="button" title="我的徽章"
+          class="kid-btn bg-violet-500 hover:bg-violet-400 text-white rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center shadow-sm">
+          <span class="text-sm sm:text-base leading-none">🏅</span>
+          <span class="sr-only">徽章</span>
+        </button>
+
         <button id="btn-sound" type="button" title="語音與音效開關"
           class="kid-btn bg-emerald-500 hover:bg-emerald-400 text-white rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center shadow-sm">
           <span id="sound-icon" class="text-sm sm:text-base leading-none">🔊</span>
@@ -201,6 +207,28 @@
         </button>
       </div>
     </div>
+
+    <!-- Kindergarten Story Mode Banner -->
+    <div id="story-banner" class="hidden pointer-events-auto max-w-md mx-auto w-full bg-violet-300/95 backdrop-blur-sm border-2 border-white rounded-full px-3 py-1 shadow-md flex items-center justify-between gap-2">
+      <div class="flex items-center gap-1.5 min-w-0 flex-1">
+        <span class="text-sm animate-bounce">🏫</span>
+        <div class="min-w-0 flex-1">
+          <div id="story-step-title" class="text-[11px] font-black text-slate-900 truncate">
+            幼幼園情節：開心上學日
+          </div>
+          <div class="w-full bg-white/70 h-1.5 rounded-full overflow-hidden">
+            <div id="story-progress-bar" class="bg-violet-600 h-full transition-all duration-300" style="width: 0%"></div>
+          </div>
+          <div id="story-step-hint" class="text-[10px] font-bold text-violet-950/80 truncate">目標進度 0/3</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-1 flex-shrink-0">
+        <button id="btn-story-close" type="button"
+          class="kid-btn bg-rose-500 hover:bg-rose-400 text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center">
+          ✖
+        </button>
+      </div>
+    </div>
   </header>
 
   <!-- Ultra-Compact Collapsible Bottom Dock -->
@@ -219,27 +247,33 @@
       <div id="bottom-dock-inner" class="flex flex-col gap-1">
 
         <!-- Compact Mode Selector Pills -->
-        <div id="mode-tabs-row" class="grid grid-cols-4 gap-1">
+        <div id="mode-tabs-row" class="grid grid-cols-5 gap-1">
           <button id="tab-build" type="button"
-            class="mode-tab-btn kid-btn flex items-center justify-center gap-1 py-1 px-2 rounded-xl font-black text-xs bg-emerald-500 text-white ring-2 ring-yellow-300 shadow-sm">
+            class="mode-tab-btn kid-btn flex items-center justify-center gap-1 py-1 px-1.5 rounded-xl font-black text-[11px] sm:text-xs bg-emerald-500 text-white ring-2 ring-yellow-300 shadow-sm">
             <span class="text-sm sm:text-base">🧱</span>
             <span class="mode-tab-text">蓋積木</span>
           </button>
 
           <button id="tab-magic" type="button"
-            class="mode-tab-btn kid-btn flex items-center justify-center gap-1 py-1 px-2 rounded-xl font-black text-xs bg-purple-500/90 hover:bg-purple-500 text-white shadow-sm">
+            class="mode-tab-btn kid-btn flex items-center justify-center gap-1 py-1 px-1.5 rounded-xl font-black text-[11px] sm:text-xs bg-purple-500/90 hover:bg-purple-500 text-white shadow-sm">
             <span class="text-sm sm:text-base">🪄</span>
             <span class="mode-tab-text">魔法蓋房</span>
           </button>
 
           <button id="tab-mob" type="button"
-            class="mode-tab-btn kid-btn flex items-center justify-center gap-1 py-1 px-2 rounded-xl font-black text-xs bg-amber-500/90 hover:bg-amber-500 text-white shadow-sm">
+            class="mode-tab-btn kid-btn flex items-center justify-center gap-1 py-1 px-1.5 rounded-xl font-black text-[11px] sm:text-xs bg-amber-500/90 hover:bg-amber-500 text-white shadow-sm">
             <span class="text-sm sm:text-base">🐣</span>
             <span class="mode-tab-text">小動物</span>
           </button>
 
+          <button id="tab-story" type="button"
+            class="mode-tab-btn kid-btn flex items-center justify-center gap-1 py-1 px-1.5 rounded-xl font-black text-[11px] sm:text-xs bg-violet-500/90 hover:bg-violet-500 text-white shadow-sm">
+            <span class="text-sm sm:text-base">🏫</span>
+            <span class="mode-tab-text">情節</span>
+          </button>
+
           <button id="tab-erase" type="button"
-            class="mode-tab-btn kid-btn flex items-center justify-center gap-1 py-1 px-2 rounded-xl font-black text-xs bg-rose-500/90 hover:bg-rose-500 text-white shadow-sm">
+            class="mode-tab-btn kid-btn flex items-center justify-center gap-1 py-1 px-1.5 rounded-xl font-black text-[11px] sm:text-xs bg-rose-500/90 hover:bg-rose-500 text-white shadow-sm">
             <span class="text-sm sm:text-base">🔨</span>
             <span class="mode-tab-text">敲敲槌</span>
           </button>
@@ -345,6 +379,15 @@
             </div>
           </button>
 
+          <button type="button" data-mob="archie_teacher"
+            class="mob-spawn-btn kid-btn flex-shrink-0 flex items-center gap-1.5 bg-orange-400 hover:bg-orange-300 text-white font-black px-2.5 py-1 rounded-xl border-b-2 border-orange-700 shadow-sm">
+            <span class="text-lg">🧑‍🏫</span>
+            <div class="text-left">
+              <div class="text-xs">阿奇老師</div>
+              <div class="sr-only">幼幼園溫柔老師</div>
+            </div>
+          </button>
+
           <button id="btn-clear-mobs" type="button"
             class="kid-btn flex-shrink-0 flex items-center gap-1 bg-slate-700 hover:bg-slate-600 text-white font-black px-2.5 py-1 rounded-xl border-b-2 border-slate-900 shadow-sm">
             <span class="text-base">🏠</span>
@@ -352,7 +395,48 @@
           </button>
         </div>
 
-        <!-- Dynamic Sub-Tray: Panel 4 - Hammer / Erase Helper -->
+        <!-- Dynamic Sub-Tray: Panel 4 - Kindergarten Story Situations -->
+        <div id="panel-story" class="hidden flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 px-0.5 flex-1">
+          <button type="button" data-story="school_day"
+            class="story-pick-btn kid-btn flex-shrink-0 flex items-center gap-1.5 bg-gradient-to-b from-orange-300 to-amber-500 text-white font-black px-2.5 py-1 rounded-xl border-b-2 border-amber-700 shadow-sm">
+            <span class="text-lg">🏫</span>
+            <div class="text-left">
+              <div class="text-xs leading-tight">開心上學日</div>
+              <div class="sr-only">蓋教室拿徽章</div>
+            </div>
+          </button>
+          <button type="button" data-story="share_garden"
+            class="story-pick-btn kid-btn flex-shrink-0 flex items-center gap-1.5 bg-gradient-to-b from-lime-300 to-green-500 text-white font-black px-2.5 py-1 rounded-xl border-b-2 border-green-700 shadow-sm">
+            <span class="text-lg">🌻</span>
+            <div class="text-left">
+              <div class="text-xs leading-tight">分享小花園</div>
+              <div class="sr-only">種花給老師看</div>
+            </div>
+          </button>
+          <button type="button" data-story="rainbow_bridge"
+            class="story-pick-btn kid-btn flex-shrink-0 flex items-center gap-1.5 bg-gradient-to-b from-fuchsia-300 to-pink-500 text-white font-black px-2.5 py-1 rounded-xl border-b-2 border-pink-700 shadow-sm">
+            <span class="text-lg">🌈</span>
+            <div class="text-left">
+              <div class="text-xs leading-tight">彩虹勇氣橋</div>
+              <div class="sr-only">鋪彩虹路</div>
+            </div>
+          </button>
+          <button type="button" data-story="star_party"
+            class="story-pick-btn kid-btn flex-shrink-0 flex items-center gap-1.5 bg-gradient-to-b from-indigo-300 to-violet-500 text-white font-black px-2.5 py-1 rounded-xl border-b-2 border-violet-700 shadow-sm">
+            <span class="text-lg">⭐</span>
+            <div class="text-left">
+              <div class="text-xs leading-tight">星星地板派對</div>
+              <div class="sr-only">鋪星星地板</div>
+            </div>
+          </button>
+          <button id="btn-open-badges-from-story" type="button"
+            class="kid-btn flex-shrink-0 flex items-center gap-1 bg-violet-600 hover:bg-violet-500 text-white font-black px-2.5 py-1 rounded-xl border-b-2 border-violet-900 shadow-sm">
+            <span class="text-base">🏅</span>
+            <span class="text-xs">我的徽章</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Sub-Tray: Panel 5 - Hammer / Erase Helper -->
         <div id="panel-erase" class="hidden flex items-center justify-between gap-2 py-0.5 px-2 flex-1">
           <div class="flex items-center gap-1.5 text-white min-w-0">
             <span class="text-lg animate-bounce">🔨</span>
@@ -432,6 +516,28 @@
           <span>🌱</span>
           <span>清空變成空草地</span>
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Badge Book Modal -->
+  <div id="badge-modal" class="hidden fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-3">
+    <div class="bg-white border-4 border-violet-400 rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto p-4 shadow-2xl flex flex-col gap-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🏅</span>
+          <h2 class="text-lg font-black text-slate-800">我的徽章冊</h2>
+        </div>
+        <button id="btn-close-badge-modal" type="button"
+          class="kid-btn bg-slate-200 hover:bg-slate-300 text-slate-700 font-black w-9 h-9 rounded-2xl">
+          ✖
+        </button>
+      </div>
+      <p class="text-xs font-bold text-slate-600">
+        完成幼幼園情節就能拿到可愛徽章喔！阿奇老師也會為你加油！
+      </p>
+      <div id="badge-grid" class="grid grid-cols-2 gap-2">
+        <!-- filled by JS -->
       </div>
     </div>
   </div>
@@ -541,7 +647,13 @@
         { id: 'lamp', name: '發光燈', emoji: '🏮', voice: '溫暖發光燈！晚上會亮晶晶喔', color: '#fbbf24', topColor: '#fef08a', style: 'lamp', light: true },
         { id: 'grass', name: '青草地', emoji: '🟩', voice: '綠油油的青草地！', color: '#4ade80', topColor: '#22c55e', style: 'grass' },
         { id: 'flower', name: '小花園', emoji: '🌻', voice: '香噴噴的小花朵！', color: '#f43f5e', topColor: '#fb7185', style: 'flower' },
-        { id: 'water', name: '清澈水', emoji: '💧', voice: '冰冰涼涼的清澈水池！', color: '#38bdf8', topColor: '#0284c7', style: 'water', transparent: true }
+        { id: 'water', name: '清澈水', emoji: '💧', voice: '冰冰涼涼的清澈水池！', color: '#38bdf8', topColor: '#0284c7', style: 'water', transparent: true },
+        { id: 'chalk_board', name: '黑板', emoji: '📋', voice: '教室黑板！阿奇老師要開始上課囉！', color: '#1f2937', topColor: '#374151', style: 'chalkboard' },
+        { id: 'desk', name: '小課桌', emoji: '🪑', voice: '小課桌！坐好坐好準備上課！', color: '#c4a574', topColor: '#e7d3a8', style: 'desk' },
+        { id: 'crayon', name: '彩色蠟筆磚', emoji: '🖍️', voice: '彩色蠟筆磚！畫畫最開心！', color: '#f97316', topColor: '#fb923c', style: 'crayon' },
+        { id: 'star_tile', name: '星星地板', emoji: '⭐', voice: '亮晶晶的星星地板！', color: '#6366f1', topColor: '#fde047', style: 'star_tile' },
+        { id: 'rainbow', name: '彩虹磚', emoji: '🌈', voice: '彩虹磚！鋪一條勇氣小路！', color: '#ec4899', topColor: '#38bdf8', style: 'rainbow' },
+        { id: 'soft_mat', name: '軟墊', emoji: '🧸', voice: '軟綿綿的彩色軟墊！', color: '#f9a8d4', topColor: '#fbcfe8', style: 'soft_mat' }
       ];
 
       const BLOCK_MAP = {};
@@ -680,6 +792,65 @@
           ctx.fillRect(2, 3, 5, 2);
           ctx.fillRect(9, 8, 5, 2);
           ctx.fillRect(3, 13, 6, 2);
+        } else if (blockDef.style === 'chalkboard') {
+          ctx.fillStyle = '#1f2937';
+          ctx.fillRect(0, 0, 16, 16);
+          ctx.fillStyle = '#111827';
+          ctx.fillRect(1, 1, 14, 14);
+          ctx.fillStyle = '#86efac';
+          ctx.fillRect(3, 4, 8, 1);
+          ctx.fillRect(3, 7, 6, 1);
+          ctx.fillRect(3, 10, 9, 1);
+          ctx.fillStyle = '#fbbf24';
+          ctx.fillRect(12, 12, 2, 2);
+        } else if (blockDef.style === 'desk') {
+          ctx.fillStyle = '#c4a574';
+          ctx.fillRect(0, 0, 16, 16);
+          ctx.fillStyle = '#e7d3a8';
+          ctx.fillRect(1, 1, 14, 5);
+          ctx.fillStyle = '#92400e';
+          ctx.fillRect(2, 8, 2, 7);
+          ctx.fillRect(12, 8, 2, 7);
+          ctx.fillStyle = '#fde68a';
+          ctx.fillRect(5, 3, 6, 2);
+        } else if (blockDef.style === 'crayon') {
+          const bands = ['#ef4444', '#f97316', '#facc15', '#22c55e', '#3b82f6', '#a855f7'];
+          bands.forEach((c, i) => {
+            ctx.fillStyle = c;
+            ctx.fillRect(0, i * 3, 16, 3);
+          });
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(6, 1, 4, 14);
+        } else if (blockDef.style === 'star_tile') {
+          ctx.fillStyle = isTopFace ? '#6366f1' : '#4f46e5';
+          ctx.fillRect(0, 0, 16, 16);
+          ctx.fillStyle = '#fde047';
+          // simple blocky star
+          ctx.fillRect(7, 2, 2, 12);
+          ctx.fillRect(2, 7, 12, 2);
+          ctx.fillRect(4, 4, 2, 2);
+          ctx.fillRect(10, 4, 2, 2);
+          ctx.fillRect(4, 10, 2, 2);
+          ctx.fillRect(10, 10, 2, 2);
+          ctx.fillStyle = '#fef9c3';
+          ctx.fillRect(7, 7, 2, 2);
+        } else if (blockDef.style === 'rainbow') {
+          const bands = ['#ef4444', '#f97316', '#facc15', '#22c55e', '#3b82f6', '#a855f7'];
+          for (let i = 0; i < 6; i++) {
+            ctx.fillStyle = bands[i];
+            ctx.fillRect(0, i * 3 - (isTopFace ? 0 : 1), 16, 3);
+          }
+          ctx.fillStyle = 'rgba(255,255,255,0.5)';
+          ctx.fillRect(2, 2, 3, 3);
+        } else if (blockDef.style === 'soft_mat') {
+          ctx.fillStyle = '#f9a8d4';
+          ctx.fillRect(0, 0, 16, 16);
+          ctx.fillStyle = '#fbcfe8';
+          ctx.fillRect(2, 2, 12, 12);
+          ctx.fillStyle = '#fda4af';
+          [[3,3],[11,3],[3,11],[11,11],[7,7]].forEach(([x,y]) => ctx.fillRect(x, y, 2, 2));
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(6, 5, 4, 2);
         } else {
           ctx.fillStyle = '#22c55e';
           ctx.fillRect(0, 0, 16, 16);
@@ -987,6 +1158,7 @@
           undoStack.push(valid);
           if (undoStack.length > 40) undoStack.shift();
           autoSaveCurrentWorld();
+          if (typeof checkStoryProgress === 'function') checkStoryProgress();
         }
       }
 
@@ -1003,6 +1175,7 @@
         playSfx('erase');
         speakCoach('復原成功！回到上一步囉！');
         autoSaveCurrentWorld();
+        if (typeof checkStoryProgress === 'function') checkStoryProgress();
       }
 
       // ==========================================
@@ -1111,6 +1284,36 @@
             leg.position.set(lx, 0.13, lz);
             g.add(leg);
           });
+        } else if (mobType === 'archie_teacher') {
+          // Original blocky kindergarten teacher (not from any show artwork)
+          const skinMat = new THREE.MeshLambertMaterial({ color: 0xfed7aa });
+          const shirtMat = new THREE.MeshLambertMaterial({ color: 0xfbbf24 });
+          const apronMat = new THREE.MeshLambertMaterial({ color: 0xfb923c });
+          const pantsMat = new THREE.MeshLambertMaterial({ color: 0x64748b });
+          const hairMat = new THREE.MeshLambertMaterial({ color: 0x78350f });
+          const eyeMat = new THREE.MeshBasicMaterial({ color: 0x1e293b });
+          const smileMat = new THREE.MeshLambertMaterial({ color: 0xf43f5e });
+          const starMat = new THREE.MeshLambertMaterial({ color: 0xfde047 });
+
+          const legs = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.34, 0.24), pantsMat);
+          legs.position.y = 0.17;
+          const torso = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.46, 0.3), shirtMat);
+          torso.position.y = 0.56;
+          const apron = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.36, 0.12), apronMat);
+          apron.position.set(0, 0.5, 0.18);
+          const head = new THREE.Mesh(new THREE.BoxGeometry(0.46, 0.46, 0.46), skinMat);
+          head.position.y = 1.02;
+          const hair = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.16, 0.5), hairMat);
+          hair.position.y = 1.28;
+          const eyeL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.08, 0.05), eyeMat);
+          eyeL.position.set(-0.12, 1.05, 0.24);
+          const eyeR = eyeL.clone();
+          eyeR.position.x = 0.12;
+          const smile = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.05, 0.04), smileMat);
+          smile.position.set(0, 0.92, 0.24);
+          const badge = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.14, 0.06), starMat);
+          badge.position.set(0.14, 0.62, 0.24);
+          g.add(legs, torso, apron, head, hair, eyeL, eyeR, smile, badge);
         } else {
           const shirtMat = new THREE.MeshLambertMaterial({ color: 0x0ea5e9 });
           const pantsMat = new THREE.MeshLambertMaterial({ color: 0x1d4ed8 });
@@ -1176,6 +1379,10 @@
           } else if (mobType === 'sheep') {
             playSfx('sheep');
             speakCoach('軟綿綿的白綿羊來囉！');
+          } else if (mobType === 'archie_teacher') {
+            playSfx('magic');
+            speakCoach('阿奇老師來囉！今天我們一起開心玩幼幼園情節！');
+            if (typeof awardBadge === 'function') awardBadge('polite', true);
           } else {
             playSfx('magic');
             speakCoach('麥塊小建築師來幫你加油！');
@@ -1458,6 +1665,7 @@
           guidedActive = false;
           if (banner) banner.classList.add('hidden');
           launchFireworks();
+          if (typeof awardBadge === 'function') awardBadge('builder', true);
           return;
         }
 
@@ -1594,18 +1802,253 @@
         });
       }
 
+
+      // ==========================================
+      // KINDERGARTEN BADGES + STORY SITUATIONS
+      // ==========================================
+      const BADGE_DEFS = [
+        { id: 'helper', name: '開心小幫手', emoji: '🤝', hint: '完成開心上學日' },
+        { id: 'share', name: '分享小天使', emoji: '😇', hint: '完成分享小花園' },
+        { id: 'brave', name: '勇氣小星星', emoji: '🌟', hint: '完成彩虹勇氣橋' },
+        { id: 'artist', name: '畫畫小畫家', emoji: '🎨', hint: '完成星星地板派對或放蠟筆磚' },
+        { id: 'builder', name: '蓋屋小建築師', emoji: '🏗️', hint: '跟著亮光蓋完房子' },
+        { id: 'polite', name: '禮貌小寶貝', emoji: '🎀', hint: '跟阿奇老師打招呼' }
+      ];
+      const BADGE_STORAGE_KEY = 'minicraft_kids_badges';
+      let earnedBadges = {};
+
+      function loadEarnedBadges() {
+        try {
+          const raw = localStorage.getItem(BADGE_STORAGE_KEY);
+          earnedBadges = raw ? JSON.parse(raw) : {};
+          if (!earnedBadges || typeof earnedBadges !== 'object') earnedBadges = {};
+        } catch (e) {
+          earnedBadges = {};
+        }
+      }
+
+      function saveEarnedBadges() {
+        try {
+          localStorage.setItem(BADGE_STORAGE_KEY, JSON.stringify(earnedBadges));
+        } catch (e) {}
+      }
+
+      function renderBadgeGrid() {
+        const grid = document.getElementById('badge-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        BADGE_DEFS.forEach(def => {
+          const got = !!earnedBadges[def.id];
+          const card = document.createElement('div');
+          card.className = got
+            ? 'bg-violet-50 border-2 border-violet-400 rounded-2xl p-2 flex flex-col items-center gap-1'
+            : 'bg-slate-50 border-2 border-slate-200 rounded-2xl p-2 flex flex-col items-center gap-1 opacity-70';
+          card.innerHTML =
+            '<span class="text-2xl">' + (got ? def.emoji : '🔒') + '</span>' +
+            '<span class="text-xs font-black text-slate-800 text-center">' + def.name + '</span>' +
+            '<span class="text-[10px] font-bold text-slate-500 text-center">' + (got ? '已拿到！' : def.hint) + '</span>';
+          grid.appendChild(card);
+        });
+      }
+
+      function openBadgeModal() {
+        loadEarnedBadges();
+        renderBadgeGrid();
+        const modal = document.getElementById('badge-modal');
+        if (modal) modal.classList.remove('hidden');
+        playSfx('place');
+        speakCoach('打開我的徽章冊！看看你拿到哪些星星徽章！');
+      }
+
+      function awardBadge(badgeId, celebrate) {
+        loadEarnedBadges();
+        if (earnedBadges[badgeId]) return false;
+        const def = BADGE_DEFS.find(b => b.id === badgeId);
+        if (!def) return false;
+        earnedBadges[badgeId] = Date.now();
+        saveEarnedBadges();
+        if (celebrate !== false) {
+          launchFireworks();
+          speakCoach('恭喜拿到徽章：' + def.name + '！阿奇老師好為你驕傲喔！');
+        }
+        renderBadgeGrid();
+        return true;
+      }
+
+      const STORY_DEFS = {
+        school_day: {
+          id: 'school_day',
+          title: '開心上學日',
+          goal: '蓋小教室：黑板＋小課桌＋小木門',
+          badge: 'helper',
+          voice: '開心上學日！跟阿奇老師蓋一間有黑板、課桌和門的小教室吧！',
+          eval() {
+            const board = countBlocksOfType('chalk_board');
+            const desk = countBlocksOfType('desk');
+            const door = countBlocksOfType('door');
+            const parts = [
+              { ok: board >= 1, label: '黑板 ' + Math.min(board, 1) + '/1' },
+              { ok: desk >= 1, label: '課桌 ' + Math.min(desk, 1) + '/1' },
+              { ok: door >= 1, label: '門 ' + Math.min(door, 1) + '/1' }
+            ];
+            const done = parts.filter(p => p.ok).length;
+            return { done, total: 3, hint: parts.map(p => p.label).join(' · '), complete: done >= 3 };
+          }
+        },
+        share_garden: {
+          id: 'share_garden',
+          title: '分享小花園',
+          goal: '在草地上種至少 5 朵小花',
+          badge: 'share',
+          voice: '分享小花園！多種幾朵花，跟阿奇老師一起欣賞喔！',
+          eval() {
+            const n = countBlocksOfType('flower');
+            return { done: Math.min(n, 5), total: 5, hint: '小花 ' + n + '/5', complete: n >= 5 };
+          }
+        },
+        rainbow_bridge: {
+          id: 'rainbow_bridge',
+          title: '彩虹勇氣橋',
+          goal: '用彩虹磚鋪至少 6 格長的路',
+          badge: 'brave',
+          voice: '彩虹勇氣橋！用彩虹磚鋪一條至少六格的小路吧！',
+          eval() {
+            const n = countBlocksOfType('rainbow');
+            return { done: Math.min(n, 6), total: 6, hint: '彩虹磚 ' + n + '/6', complete: n >= 6 };
+          }
+        },
+        star_party: {
+          id: 'star_party',
+          title: '星星地板派對',
+          goal: '鋪 8 塊星星地板，再放一盞發光燈',
+          badge: 'artist',
+          voice: '星星地板派對！鋪滿星星地板，再點一盞溫暖小燈！',
+          eval() {
+            const stars = countBlocksOfType('star_tile');
+            const lamps = countBlocksOfType('lamp');
+            const starDone = Math.min(stars, 8);
+            const lampDone = lamps >= 1 ? 1 : 0;
+            const done = starDone + lampDone;
+            return {
+              done,
+              total: 9,
+              hint: '星星 ' + stars + '/8 · 燈 ' + lampDone + '/1',
+              complete: stars >= 8 && lamps >= 1
+            };
+          }
+        }
+      };
+
+      let storyActive = false;
+      let activeStoryId = null;
+
+      function countBlocksOfType(typeId) {
+        let n = 0;
+        userBlocks.forEach(val => {
+          if (val && val.type === typeId) n++;
+        });
+        return n;
+      }
+
+      function ensureArchieTeacherNearby() {
+        const has = mobs.some(m => m.type === 'archie_teacher');
+        if (!has) {
+          spawnMobAt('archie_teacher', -1, 1, true);
+          if (typeof awardBadge === 'function') awardBadge('polite', false);
+        }
+      }
+
+      function updateStoryBanner() {
+        const banner = document.getElementById('story-banner');
+        if (!banner) return;
+        if (!storyActive || !activeStoryId || !STORY_DEFS[activeStoryId]) {
+          banner.classList.add('hidden');
+          return;
+        }
+        banner.classList.remove('hidden');
+        const def = STORY_DEFS[activeStoryId];
+        const progress = def.eval();
+        const titleEl = document.getElementById('story-step-title');
+        const barEl = document.getElementById('story-progress-bar');
+        const hintEl = document.getElementById('story-step-hint');
+        if (titleEl) titleEl.textContent = '情節：' + def.title + ' — ' + def.goal;
+        if (hintEl) hintEl.textContent = progress.hint;
+        if (barEl) {
+          const pct = Math.round((progress.done / progress.total) * 100);
+          barEl.style.width = pct + '%';
+        }
+      }
+
+      function startStory(storyId) {
+        const def = STORY_DEFS[storyId];
+        if (!def) return;
+        if (guidedActive) {
+          guidedActive = false;
+          renderGuidedStep();
+        }
+        storyActive = true;
+        activeStoryId = storyId;
+        ensureArchieTeacherNearby();
+        const pick = {
+          school_day: 'chalk_board',
+          share_garden: 'flower',
+          rainbow_bridge: 'rainbow',
+          star_party: 'star_tile'
+        }[storyId];
+        if (pick && BLOCK_MAP[pick]) {
+          selectedBlockId = pick;
+        }
+        setMode('build', false);
+        renderBlockPalette();
+        updateStoryBanner();
+        playSfx('magic');
+        speakCoach(def.voice);
+        checkStoryProgress();
+      }
+
+      function stopStory() {
+        storyActive = false;
+        activeStoryId = null;
+        updateStoryBanner();
+        speakCoach('情節先休息一下，自由蓋房子也可以喔！');
+      }
+
+      function checkStoryProgress() {
+        if (!storyActive || !activeStoryId) {
+          updateStoryBanner();
+          return;
+        }
+        const def = STORY_DEFS[activeStoryId];
+        if (!def) return;
+        const progress = def.eval();
+        updateStoryBanner();
+        if (progress.complete) {
+          const badgeId = def.badge;
+          const newly = awardBadge(badgeId, true);
+          storyActive = false;
+          activeStoryId = null;
+          updateStoryBanner();
+          if (!newly) {
+            speakCoach(def.title + '又完成一次囉！你超棒的！');
+            launchFireworks();
+          }
+        }
+      }
+
       function setMode(mode, announce) {
         currentMode = mode;
         const tabs = {
           build: document.getElementById('tab-build'),
           magic: document.getElementById('tab-magic'),
           mob: document.getElementById('tab-mob'),
+          story: document.getElementById('tab-story'),
           erase: document.getElementById('tab-erase')
         };
         const panels = {
           build: document.getElementById('panel-build'),
           magic: document.getElementById('panel-magic'),
           mob: document.getElementById('panel-mob'),
+          story: document.getElementById('panel-story'),
           erase: document.getElementById('panel-erase')
         };
 
@@ -1633,11 +2076,14 @@
             speakCoach('魔法蓋房！選一座喜歡的房子，點地上就會變出來喔！');
           } else if (mode === 'mob') {
             speakCoach('小動物朋友！點地上召喚可愛動物來玩！');
+          } else if (mode === 'story') {
+            speakCoach('幼幼園情節！選一個故事，跟著阿奇老師完成目標拿徽章！');
           } else if (mode === 'erase') {
             speakCoach('敲敲槌模式！點一下積木就能敲掉喔！');
           }
         }
       }
+
 
       function toggleBottomDock(forceState) {
         dockCollapsed = typeof forceState === 'boolean' ? forceState : !dockCollapsed;
@@ -1775,6 +2221,9 @@
           spawnBlockParticles(placeX + 0.5, placeY + 0.5, placeZ + 0.5, def ? def.color : 0xfde047, 8);
           playSfx('place');
           if (guidedActive) renderGuidedStep();
+          if (selectedBlockId === 'crayon' && countBlocksOfType('crayon') >= 4) {
+            if (typeof awardBadge === 'function') awardBadge('artist', true);
+          }
         }
       }
 
@@ -1958,8 +2407,24 @@
       document.getElementById('tab-build').addEventListener('click', () => setMode('build', true));
       document.getElementById('tab-magic').addEventListener('click', () => setMode('magic', true));
       document.getElementById('tab-mob').addEventListener('click', () => setMode('mob', true));
+      document.getElementById('tab-story').addEventListener('click', () => setMode('story', true));
       document.getElementById('tab-erase').addEventListener('click', () => setMode('erase', true));
       document.getElementById('btn-back-to-build').addEventListener('click', () => setMode('build', true));
+
+      document.getElementById('btn-badges').addEventListener('click', () => openBadgeModal());
+      document.getElementById('btn-open-badges-from-story').addEventListener('click', () => openBadgeModal());
+      document.getElementById('btn-close-badge-modal').addEventListener('click', () => {
+        document.getElementById('badge-modal').classList.add('hidden');
+      });
+      document.getElementById('btn-story-close').addEventListener('click', () => stopStory());
+      document.querySelectorAll('.story-pick-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const sid = btn.getAttribute('data-story');
+          document.querySelectorAll('.story-pick-btn').forEach(b => b.classList.remove('kid-btn-selected'));
+          btn.classList.add('kid-btn-selected');
+          startStory(sid);
+        });
+      });
 
       document.getElementById('btn-toggle-dock').addEventListener('click', () => {
         toggleBottomDock();
@@ -2274,6 +2739,8 @@
         initTextures();
         buildIslandBase();
         renderBlockPalette();
+        loadEarnedBadges();
+        renderBadgeGrid();
         document.getElementById('brush-icon').textContent = '🧱';
 
         let loaded = false;
