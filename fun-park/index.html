@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>阿奇小隊歡樂遊樂園 🎡 Mureka 兒歌派對</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Kid-Friendly Drifting Sky Clouds -->
+  <div class="sky-decor" aria-hidden="true">
+    <span class="sky-cloud c1">☁️</span>
+    <span class="sky-cloud c2">⛅</span>
+    <span class="sky-cloud c3">☁️</span>
+    <span class="sky-cloud c4">🎈</span>
+  </div>
+
+  <!-- Welcome Modal -->
+  <div class="welcome-overlay" id="welcomeModal">
+    <div class="welcome-card">
+      <div class="welcome-mascot">🐶🚂🍕🎵</div>
+      <div class="welcome-title">阿奇小隊歡樂遊樂園</div>
+      <div class="welcome-sub">
+        專為 5 歲小朋友設計的單指小遊戲！<br/>
+        🎵 內建 2 首 <b>Mureka AI</b> 專屬創作兒歌<br/>
+        收集 4 個閃亮徽章成為超級小隊長！
+      </div>
+      <button type="button" class="start-play-btn" id="startPlayBtn">▶️ 點這裡開始玩！</button>
+    </div>
+  </div>
+
+  <!-- Super Duggee Grand Trophy Celebration Modal -->
+  <div class="welcome-overlay trophy-overlay" id="trophyModal" hidden>
+    <div class="welcome-card trophy-card">
+      <div class="trophy-sparkles" aria-hidden="true">✨🌟🎆🌟✨</div>
+      <div class="welcome-mascot trophy-mascot">🏆🐶👑</div>
+      <div class="welcome-title trophy-title">超級阿奇總隊長大獎盃！</div>
+      <div class="welcome-sub">
+        太神啦！4 個閃亮徽章全部收集完成！<br/>
+        全遊樂園的小動物都為你歡呼拍拍手！
+      </div>
+      <div class="trophy-badges-row">
+        <span class="trophy-pill">🚂 火車長</span>
+        <span class="trophy-pill">🍕 小廚師</span>
+        <span class="trophy-pill">🧩 救援王</span>
+        <span class="trophy-pill">🎵 音樂家</span>
+      </div>
+      <div class="trophy-actions">
+        <button type="button" class="big-btn btn-orange" id="trophyFireworkBtn">🎆 放煙火慶祝！</button>
+        <button type="button" class="start-play-btn" id="closeTrophyBtn">🎉 繼續開心玩！</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <!-- Top Header & Mureka Music Box -->
+    <header class="top-header">
+      <div class="title-row">
+        <div class="app-title">🎡 阿奇小隊遊樂園</div>
+        <a class="back-mc-btn" href="../">🧱 小小麥塊</a>
+      </div>
+      <div class="mureka-bar">
+        <img id="murekaCover" class="mureka-cover" src="audio/cover1.jpg" alt="Mureka Cover" />
+        <div class="mureka-info">
+          <span class="mureka-tag">🎵 Mureka AI 兒歌</span>
+          <div class="mureka-song-title" id="songTitle">陽光小火車與披薩派對</div>
+          <div class="mureka-lyric" id="songLyric">🚂 嘟嘟～陽光小火車出發囉！</div>
+        </div>
+        <div class="mureka-controls">
+          <button class="music-btn" id="playPauseBtn" aria-label="播放或暫停">▶️ 音樂</button>
+          <button class="music-btn secondary" id="nextSongBtn" aria-label="換歌">⏭️ 換歌</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Collectible Badges Bar -->
+    <section class="badge-bar" aria-label="徽章收集列">
+      <div class="badge-slot" id="badge-train">
+        <span class="b-icon">🚂</span>
+        <span>火車長</span>
+      </div>
+      <div class="badge-slot" id="badge-chef">
+        <span class="b-icon">🍕</span>
+        <span>小廚師</span>
+      </div>
+      <div class="badge-slot" id="badge-maze">
+        <span class="b-icon">🧩</span>
+        <span>救援王</span>
+      </div>
+      <div class="badge-slot" id="badge-music">
+        <span class="b-icon">🎵</span>
+        <span>音樂家</span>
+      </div>
+    </section>
+
+    <!-- Super Duggee Grand Trophy Banner (Unlocks when all 4 badges are earned) -->
+    <button type="button" class="grand-trophy-banner" id="grandTrophyBanner" hidden>
+      <span class="gt-icon">🏆</span>
+      <span class="gt-text">超級阿奇總隊長大獎盃！點我慶祝</span>
+      <span class="gt-icon">👑</span>
+    </button>
+
+    <!-- Main Interactive Stage -->
+    <main class="game-card">
+      <!-- Game 1: Train Track Builder -->
+      <section class="game-panel active" id="panel-train">
+        <div class="coach-banner">
+          <div class="coach-avatar" data-voice="train">🐶</div>
+          <div class="coach-text" id="trainCoach">點閃亮草地鋪鐵軌，或按「自動鋪軌」，再按發車載小動物！</div>
+          <button type="button" class="voice-guide-btn" data-voice="train" aria-label="語音導覽">
+            <span class="vg-icon">🔊</span>
+            <span>語音導覽</span>
+          </button>
+        </div>
+        <div class="train-stage-wrap">
+          <div class="whistle-toast" id="whistleToast" hidden>🚂💨 嘟—嘟～！火車鳴笛囉！</div>
+          <div class="grid-5x5" id="trainGrid"></div>
+        </div>
+        <div class="action-row">
+          <button type="button" class="big-btn btn-blue" id="autoTrackBtn">✨ 自動鋪軌</button>
+          <button type="button" class="big-btn btn-green" id="runTrainBtn">🚂 嘟嘟發車！</button>
+        </div>
+      </section>
+
+      <!-- Game 2: Pizza & Ice Cream Shop -->
+      <section class="game-panel" id="panel-chef">
+        <div class="coach-banner">
+          <div class="coach-avatar" id="chefAvatar" data-voice="chef">🦁</div>
+          <div class="coach-text" id="chefCoach">小客人肚子餓了！點下面的配料放到餐點上吧！</div>
+          <button type="button" class="voice-guide-btn" data-voice="chef" aria-label="語音導覽">
+            <span class="vg-icon">🔊</span>
+            <span>語音導覽</span>
+          </button>
+        </div>
+        <div class="chef-order-box">
+          <div class="customer-box">
+            <span class="customer-face" id="customerFace">🦁</span>
+            <span id="orderTitle">想吃：陽光披薩</span>
+          </div>
+          <div class="order-targets" id="orderTargets"></div>
+        </div>
+        <div class="pizza-plate-wrap">
+          <div class="pizza-base" id="pizzaBase"></div>
+        </div>
+        <div class="topping-grid" id="toppingGrid"></div>
+        <div class="action-row">
+          <button type="button" class="big-btn btn-orange" id="switchDishBtn">🍨 換做冰淇淋</button>
+          <button type="button" class="big-btn btn-pink" id="serveDishBtn">🔥 烤好端上桌！</button>
+        </div>
+      </section>
+
+      <!-- Game 3: Forest Rescue Maze -->
+      <section class="game-panel" id="panel-maze">
+        <div class="coach-banner">
+          <div class="coach-avatar" data-voice="maze">🧭</div>
+          <div class="coach-text" id="mazeCoach">點格子或方向鍵，幫阿奇敲碎石頭、救出小動物再到紅旗！</div>
+          <button type="button" class="voice-guide-btn" data-voice="maze" aria-label="語音導覽">
+            <span class="vg-icon">🔊</span>
+            <span>語音導覽</span>
+          </button>
+        </div>
+        <div class="grid-5x5" id="mazeGrid"></div>
+        <div class="dpad-row">
+          <button type="button" class="dpad-btn" data-dir="left">⬅️</button>
+          <button type="button" class="dpad-btn" data-dir="up">⬆️</button>
+          <button type="button" class="dpad-btn" data-dir="down">⬇️</button>
+          <button type="button" class="dpad-btn" data-dir="right">➡️</button>
+        </div>
+        <div class="action-row">
+          <button type="button" class="big-btn btn-blue" id="newMazeBtn">🔄 換一關迷宮</button>
+        </div>
+      </section>
+
+      <!-- Game 4: Mureka Music Toybox -->
+      <section class="game-panel" id="panel-music">
+        <div class="coach-banner">
+          <div class="coach-avatar" data-voice="music">🎤</div>
+          <div class="coach-text" id="musicCoach">跟著 Mureka 兒歌一起彈彩虹木琴、點小動物合唱團！</div>
+          <button type="button" class="voice-guide-btn" data-voice="music" aria-label="語音導覽">
+            <span class="vg-icon">🔊</span>
+            <span>語音導覽</span>
+          </button>
+        </div>
+        <div class="animal-choir" id="animalChoir"></div>
+        <div class="xylo-row" id="xyloRow"></div>
+        <div class="drum-row" id="drumRow"></div>
+        <div class="action-row">
+          <button type="button" class="big-btn btn-rainbow" id="autoMelodyBtn">🎵 自動演奏兒歌</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Tab Navigation -->
+    <nav class="bottom-tabs" aria-label="遊戲選擇">
+      <button class="tab-btn active" data-tab="train">
+        <span class="t-icon">🚂</span>
+        <span>小火車</span>
+      </button>
+      <button class="tab-btn" data-tab="chef">
+        <span class="t-icon">🍕</span>
+        <span>披薩店</span>
+      </button>
+      <button class="tab-btn" data-tab="maze">
+        <span class="t-icon">🧩</span>
+        <span>小迷宮</span>
+      </button>
+      <button class="tab-btn" data-tab="music">
+        <span class="t-icon">🎵</span>
+        <span>音樂盒</span>
+      </button>
+    </nav>
+  </div>
+
+  <audio id="bgmAudio" preload="auto" loop></audio>
+  <script src="game.js"></script>
+</body>
+</html>
